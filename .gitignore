@@ -1,0 +1,21 @@
+# ===================================
+# SENSÍVEL — NUNCA SUBIR
+# ===================================
+
+# Credenciais e tokens Vercel
+.env
+.env.*
+.env.local
+
+# Configuração local do Vercel (projectId, tokens)
+.vercel/
+
+# ===================================
+# SISTEMA / LIXO
+# ===================================
+.DS_Store
+**/.DS_Store
+Thumbs.db
+
+# Ferramenta interna do agente
+.skills/

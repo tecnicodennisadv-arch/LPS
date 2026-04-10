@@ -1,0 +1,282 @@
+/* =========================================
+   KIBO UI INSPIRED COMPONENT LIBRARY
+   Adapted for Dennis Advocacia Brand
+   ========================================= */
+
+/* 1. Avatar Stack */
+.avatar-stack {
+  display: flex;
+  align-items: center;
+  padding-left: 0.5rem; /* Space for negative margin to avoid clipping on first item */
+}
+
+.avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--color-surface);
+  background-color: var(--color-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-left: -0.75rem;
+  transition: transform var(--transition-fast), z-index 0s;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+  z-index: 1;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-fallback {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.avatar-stack:hover .avatar {
+  transform: translateX(0);
+}
+
+.avatar:hover {
+  transform: translateY(-4px) scale(1.05) !important;
+  z-index: 10;
+  box-shadow: var(--shadow-md);
+}
+
+/* 2. Badge / Pill */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: var(--font-body);
+  transition: all var(--transition-fast);
+}
+
+.badge-primary {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.badge-secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-on-primary);
+}
+
+.badge-outline {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+
+.badge-muted {
+  background-color: var(--color-muted);
+  color: var(--color-foreground-muted);
+}
+
+/* 3. Status Indicator */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--color-foreground-muted);
+}
+
+.status-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+
+.status-active .status-dot { color: #10B981; } /* Emerald */
+.status-idle .status-dot { color: #F59E0B; } /* Amber */
+.status-error .status-dot { color: var(--color-destructive); }
+
+/* 4. Spinner */
+.spinner {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid var(--color-muted);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 5. Banner / Alert */
+.banner {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-4);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-4);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--spacing-4);
+}
+
+.banner-icon {
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.banner-content {
+  flex: 1;
+}
+
+.banner-title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--color-foreground);
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.banner-desc {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--color-foreground-muted);
+  margin-bottom: 0;
+}
+
+/* 6. Combobox / Choicebox (Styled standard select/radio panels) */
+.choicebox {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.choicebox-item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  padding: var(--spacing-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  background: var(--color-surface);
+}
+
+.choicebox-item:hover {
+  border-color: var(--color-secondary);
+  background-color: var(--color-muted);
+}
+
+.choicebox-item input[type="radio"],
+.choicebox-item input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+}
+
+.choicebox-content {
+  margin-left: 2rem;
+}
+
+.choicebox-indicator {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  transition: all var(--transition-fast);
+}
+
+.choicebox-item input[type="checkbox"] ~ .choicebox-indicator {
+  border-radius: 0.25rem;
+}
+
+.choicebox-item input:checked ~ .choicebox-indicator {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  /* Optional: insert checkmark via pseudo-element */
+}
+
+.choicebox-item input:checked ~ .choicebox-indicator::after {
+  content: "";
+  position: absolute;
+  left: 0.35rem;
+  top: 0.2rem;
+  width: 0.35rem;
+  height: 0.6rem;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.choicebox-item:has(input:checked) {
+  border-color: var(--color-primary);
+  background: linear-gradient(to right, rgba(44, 72, 75, 0.05), transparent);
+}
+
+/* 7. Card (Generic component wrapper) */
+.card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-6);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-normal);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* 8. Modern Input & Form Field */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-4);
+}
+
+.input-label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--color-foreground);
+}
+
+.input-field {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-foreground);
+  background-color: var(--color-surface);
+  transition: all var(--transition-fast);
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(44, 72, 75, 0.1);
+}
+
+.input-field::placeholder {
+  color: var(--color-border);
+}
