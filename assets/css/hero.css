@@ -123,8 +123,18 @@
 
 .hero-subheadline {
   font-size: 1.125rem;
+  line-height: 1.6;
   margin-bottom: var(--spacing-8);
   max-width: 500px;
+  color: var(--color-foreground-muted);
+}
+
+@media (max-width: 768px) {
+  .hero-subheadline {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: var(--spacing-6);
+  }
 }
 
 .hero-actions {

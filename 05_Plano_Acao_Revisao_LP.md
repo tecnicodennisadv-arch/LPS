@@ -7,7 +7,7 @@ Com base na análise técnica recebida, dividimos as correções em três pilare
 
 **Ações a Tomar:**
 - [x] Remover o card de métricas/resultados flutuante (`hero-metric-card`) da área Hero, garantindo foco total no advogado (Dennis Ferreira) e na Headline.
-- [ ] Revisar o espaçamento e entrelinhas do subtítulo na visualização mobile para evitar blocos densos de texto.
+- [x] Revisar o espaçamento e entrelinhas do subtítulo na visualização mobile para evitar blocos densos de texto.
 
 ## 2. Copy e Persuasão (Prova Social)
 **Problema Identificado:** ERRO CRÍTICO DE CONGRUÊNCIA. A página foca em ações de Direito do Consumidor (bancos, planos de saúde, companhias aéreas), mas os depoimentos falavam de "horas extras não pagas" e "demitida injustamente" (ações trabalhistas). Além de isso quebrar a autoridade direcional, o uso de "Cliente Satisfeito" genérico soa falso.
